@@ -21,15 +21,19 @@ body {
     color: #596270;
 }
 
-p a {
+p a, #content a {
     color: #3466b1;
     font-weight: 500;
     text-decoration: none;
 }
-    p a:hover {
+    p a:hover, #content a:hover {
         background: #f1f5fb;
         color: #26559b;
     }
+    
+.submenu {
+	padding-left: 30px;
+}
 
 button, .btn {
     display: inline-block;
@@ -54,6 +58,24 @@ button, .btn {
     button:hover, .btn:hover {
         background: #4175cb;
     }
+    
+h2 {
+	font-weight: 300;
+	font-size: 24px;
+	line-height: 34px;
+	
+	padding-bottom: 15px;
+}
+h3 {
+	font-weight: 500;
+	font-size: 17px;
+	
+	padding: 10px 0 15px;
+}
+
+p {
+	padding-bottom: 15px;
+}
 
 #top {
     position: relative;
@@ -85,6 +107,9 @@ button, .btn {
                 color: #2e66b9;
             }
     #top h1 {
+    	position: relative;
+    	z-index: 2;
+    	
         font-size: 32px;
         line-height: 44px;
         font-weight: 300;
@@ -132,6 +157,7 @@ div.features {
     .features p {
         clear: both;
         padding-left: 39px;
+        padding-bottom: 0;
         
         font-size: 13px;
         line-height: 19px;
@@ -167,6 +193,10 @@ div.features {
         #footer a:hover {
             color: #505968;
         }
+        
+hgroup {
+ 	display: none;
+}
         
         
 @-webkit-keyframes slide {

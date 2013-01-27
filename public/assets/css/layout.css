@@ -1,20 +1,29 @@
-.center, .wrap {
+.center, .wrap, #content {
     margin: 0 auto 25px; 
     overflow: hidden;   
 }
-    .wrap {
+    .wrap, #content {
         position: relative;
         left: 20px;
         
         width: 1000px;
     }
-    .wrap.spaced {
+    .wrap.spaced, #content {
     	min-height: 210px;
     	padding: 80px 0 60px;
     }
     .wrap > * {
         max-width: 960px;
     }
+    
+.primary {
+	float: left;
+	width: 700px;
+}
+#sidebar {
+	float: right;
+	width: 250px;
+} 
 
 /* Grid system */
 [class*='col'], .content, .sidebar {
