@@ -1,2 +1,7 @@
+# OSX dot files
 .DS_Store
 *.esproj
+
+# DevEnv
+/app/config/dev
+/app/config/prod
