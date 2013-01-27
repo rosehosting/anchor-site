@@ -82,6 +82,13 @@ Route::get('resources', function() {
 });
 
 /*
+	Latest Version
+*/
+Route::get('version', function() {
+	return '0.8';
+});
+
+/*
 	404 catch all
 */
 Route::any('*', function() {
