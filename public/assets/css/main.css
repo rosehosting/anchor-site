@@ -35,6 +35,14 @@ p a, #content a {
 	padding-left: 30px;
 }
 
+p + small {
+	display: block;
+	font-size: 13px;
+	line-height: 21px;
+	
+	color: #969fae;
+}
+
 button, .btn {
     display: inline-block;
     width: auto;
