@@ -112,7 +112,7 @@ button, .btn {
         -webkit-animation: slide 1.2s;
     }
         
-ul.features {
+div.features {
     margin: 50px auto;
 }
     .features h2 {
@@ -122,7 +122,7 @@ ul.features {
         font-size: 14px;
         font-weight: 500;
     }
-    .features li img {
+    .features div img {
         float: left;
         margin-right: 15px;
         
