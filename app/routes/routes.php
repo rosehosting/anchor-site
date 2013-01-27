@@ -15,13 +15,6 @@ Route::get(array('/', 'home'), function() {
 });
 
 /*
-	Features
-*/
-Route::get('features', function() {
-	return Layout::make('features');
-});
-
-/*
 	Documentation
 */
 Route::get(array('docs', 'docs/getting-started'), function() {
@@ -97,5 +90,8 @@ Route::get('version', function() {
 	404 catch all
 */
 Route::any('*', function() {
-	return Response::error(404);
+	Response::error(404);
+	return Layout::make('error/404', array(
+		'title' => 'Page not found'
+	));
 });

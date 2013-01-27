@@ -17,24 +17,24 @@
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0">
     </head>
-    <body class="home">
+    <body class="<?php echo $page; ?>">
         <header id="top">
             <nav class="wrap">
                 <a href="/" title="Go to the Anchor homepage"><img src="/assets/img/logo.png" alt="Anchor CMS"></a>
                 
                 <ul>
-                 <?php foreach(array('features', 'docs', 'forum', 'download') as $link): ?>
+                 <?php foreach(array('docs', 'forum', 'download') as $link): ?>
 	                 <?php $class = (strpos($page, $link) !== false) ? ' class="active"' : ''; ?>
 	                 <li<?php echo $class; ?>><?php echo Html::link($link, ucwords($link)); ?></li>
                  <?php endforeach; ?>
                  </ul>
             </nav>
             
+            <h1 class="wrap">
+                <?php echo isset($heading) ? $heading : $title; ?>
+            </h1>
+            
             <?php if(isset($homepage)): ?>
-            	<h1 class="wrap">
-            	    <?php echo isset($heading) ? $heading : $title; ?>
-            	</h1>
-            	
             	<img class="screenie" src="/assets/img/screenshot.png">
             <?php endif; ?>
 		</header>
