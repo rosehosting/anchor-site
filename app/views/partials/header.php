@@ -17,7 +17,7 @@
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0">
     </head>
-    <body class="<?php echo $page; ?>">
+    <body class="<?php echo str_replace('/', 'home', $page); ?>">
         <header id="top">
             <nav class="wrap">
                 <a href="<?php echo url('home'); ?>" title="Go to the Anchor homepage"><img src="<?php echo asset('assets/img/logo.png'); ?>" alt="Anchor CMS"></a>
