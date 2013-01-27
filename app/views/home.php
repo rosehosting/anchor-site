@@ -1,42 +1,79 @@
 <?php echo $header; ?>
 
-<hgroup role="banner">
-	<h1>Make blogging beautiful.</h1>
+<div class="features wrap">
+    <div class="col3">
+        <img src="/assets/img/icons/markdown.png">
+        <h2>Markdown-happy</h2>
+        <p>Anchor gives you full freedom over your words. Just write in <a href="http://daringfireball.net/projects/markdown/">Markdown</a> or HTML, whatever you prefer.</p>
+    </div>
+    
+    <div class="col3">
+        <img src="/assets/img/icons/tiny.png">
+        <h2>Teeny-tiny</h2>
+        <p>Prefer your blog systems without the bloat? Anchor weighs in smaller than a standard JPG image (~150kb).</p>
+    </div>
+    
+    <div class="col3">
+        <img src="/assets/img/icons/drag-and-drop.png">
+        <h2>Drag-n-drop</h2>
+        <p>Want to add some custom CSS, JavaScript, or an image to your post? Just drag the file over to Anchor, and we'll do the rest.</p>
+    </div>
+    
+    <div class="col3">
+        <img src="/assets/img/icons/open-source.png">
+        <h2>Open-source</h2>
+        <p>See something you want to improve in Anchor? Go right ahead; it’s all hosted on GitHub, and anyone is welcomed and invited to collaborate and contribute.</p>
+    </div>
+    
+    <div class="col3">
+        <img src="/assets/img/icons/i18n.png">
+        <h2>Works in your language</h2>
+        <p>Anchor is fully <a href="http://www.debian.org/doc/manuals/intro-i18n/">i18n</a> compatible, so you can just grab a language file and get speaking Anchor in no time.</p>
+    </div>
+                
+    <div class="col3">
+        <img src="/assets/img/icons/themes.png">
+        <h2>Super-simple theming</h2>
+        <p>Creating and modifying a theme is as simple as knowing some very simple PHP and HTML/CSS. There’s no need to learn any templating languages.</p>
+    </div>
+    
+    <div class="col3">
+        <img src="/assets/img/icons/events.png">
+        <h2>Event-bound</h2>
+        <p>Create and utilise custom theme hooks without the need for advanced programming knowledge.</p>
+    </div>
+    
+    <div class="col3">
+        <img src="/assets/img/icons/install.png">
+        <h2>Painfully easy to install</h2>
+        <p>Famous five-minute install? Welcome to the tantalising two-minute install.</p>
+    </div>
+    
+    <div class="col3">
+        <img src="/assets/img/icons/extensible.png">
+        <h2>Extensible</h2>
+        <p>You can add or remove an infinite amount of custom fields to any post or page at the click of a button.</p>
+    </div>
+    
+    <div class="col3">
+        <img src="/assets/img/icons/art-directed.png">
+        <h2>Art-directed blogging</h2>
+        <p>Make every article unique with the ability to add custom CSS, JavaScript, and HTML to any blog post or page.</p>
+    </div>
+    
+    <div class="col3">
+        <img src="/assets/img/icons/free.png">
+        <h2>Forever free</h2>
+        <p>Anchor has been, is, and always will be 100% free of charge to everyone.</p>
+    </div>
+    
+    <div class="col3">
+        <img src="/assets/img/icons/modern.png">
+        <h2>Markup made modern</h2>
+        <p>To keep Anchor small, we only support the latest browsers &mdash; no more IE6.</p>
+    </div>
+</div>
 
-	<h2>Anchor is a content management system, written in PHP5, built for art-directed posts.
-	<a href="/download" title="Grab the latest version of Anchor">Get it now &raquo;</a></h2>
-</hgroup>
-
-<section id="content">
-	<ul class="features">
-		<li>
-			<img src="<?php echo asset('assets/img/extensible.gif'); ?>" alt="Anchor is crazy easy to modify.">
-
-			<h1>Extensible.</h1>
-
-			<p>Every website is unique, and Anchor knows that. That’s why there’s a powerful, yet simple
-			theming engine behind Anchor, just waiting to give your posts that unique touch.</p>
-		</li>
-
-		<li>
-			<img src="<?php echo asset('assets/img/open-source.gif'); ?>" alt="Anchor&rsquo;s source code is completely available for anyone.">
-
-			<h1>Open&ndash;source.</h1>
-
-			<p>Since the beginning, Anchor has been written and maintained by an amazing
-			<a href="//github.com/anchorcms/anchor-cms">community</a> of web designers and
-			developers, all working to produce a great product, for free.</p>
-		</li>
-
-		<li>
-			<img src="<?php echo asset('assets/img/simple.gif'); ?>" alt="Anchor was written for your grandma to use.">
-
-			<h1>Simple.</h1>
-
-			<p>Want to write a blog post? Anchor won’t get in your way. With its simple, uncluttered admin
-			interface, you can be writing blog posts with no distractions. Just like you wanted.</p>
-		</li>
-	</ul>
-</section>
+<script src="/assets/js/masonry.js"></script>
 
 <?php echo $footer; ?>

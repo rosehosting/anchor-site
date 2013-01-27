@@ -6,7 +6,12 @@
 	Home page
 */
 Route::get(array('/', 'home'), function() {
-	return Layout::make('home');
+	return Layout::make('home', array(
+		'homepage' => true,
+		'heading' => 'Anchor is a super-simple,<br>lightweight blog system, made<br>to let you just write.
+		
+		<a href="/download" class="btn"><i>Download</i> Anchor 0.8</a>'
+	));
 });
 
 /*
