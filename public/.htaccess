@@ -1,4 +1,4 @@
-SetEnv ENV prod
+SetEnv APP_ENV prod
 
 <IfModule mod_rewrite.c>
 	RewriteEngine On
