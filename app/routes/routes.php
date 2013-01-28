@@ -9,7 +9,7 @@ Route::get(array('/', 'home'), function() {
 	return Layout::make('home', array(
 		'homepage' => true,
 		'heading' => 'Anchor is a super-simple,<br>lightweight blog system, made<br>to let you just write.
-		
+
 		<a href="/download" class="btn"><i>Download</i> Anchor 0.8</a>'
 	));
 });
@@ -60,8 +60,11 @@ Route::get('docs/theming-functions/(:any)', function($file) {
 /*
 	Forum
 */
-Route::get('forum', function() {
-	return Layout::make('forum');
+Route::get(array('forum', 'forum/.*'), function() {
+	$path = preg_replace('#^forum/#', '', Uri::current());
+	$uri = Uri::build(array('host' => 'forums.anchorcms.com', 'path' => $path));
+
+	return Response::make('', 301, array('Location' => $uri));
 });
 
 
@@ -69,7 +72,7 @@ Route::get('forum', function() {
 	Download
 */
 Route::get('download', function() {
-	return Response::redirect('https://github.com/anchorcms/anchor-cms/archive/master.zip');
+	return Response::redirect('https://github.com/anchorcms/anchor-cms/archive/0.8.zip');
 });
 
 /*
@@ -90,8 +93,8 @@ Route::get('version', function() {
 	404 catch all
 */
 Route::any('*', function() {
-	Response::error(404);
-	return Layout::make('error/404', array(
+	$output = Layout::make('error/404', array(
 		'title' => 'Page not found'
 	));
+	return Response::make($output, 404);
 });
