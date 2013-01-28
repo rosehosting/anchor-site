@@ -61,7 +61,7 @@ Route::get('docs/theming-functions/(:any)', function($file) {
 	Forum
 */
 Route::get(array('forum', 'forum/.*'), function() {
-	$path = preg_replace('#^forum/#', '', Uri::current());
+	$path = str_replace(array('forum/', 'forum'), '', Uri::current());
 	$uri = Uri::build(array('host' => 'forums.anchorcms.com', 'path' => $path));
 
 	return Response::make('', 301, array('Location' => $uri));
