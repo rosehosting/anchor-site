@@ -1,0 +1,12 @@
+.screenie {
+	display: none;
+}
+
+.wrap, #content {
+	width: 90% !important;
+}
+
+.left, [class*='col'], .content, .sidebar {
+	float: none;
+	width: 100% !important;
+}

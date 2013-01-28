@@ -8,8 +8,8 @@
 
 		<meta name="description" content="Anchor is a lightweight blogging platform with a focus on simplicity and elegance.">
 
-		<link rel="stylesheet" href="<?php echo asset('assets/css/layout.css'); ?>">
 		<link rel="stylesheet" href="<?php echo asset('assets/css/main.css'); ?>">
+		<link rel="stylesheet" href="<?php echo asset('assets/css/small.css'); ?>" media="(max-width: 600px)">
 
 		<link rel="shortcut icon" href="<?php echo asset('assets/img/favicon.png'); ?>">
 
