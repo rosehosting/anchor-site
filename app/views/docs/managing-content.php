@@ -16,15 +16,18 @@
 
 		<dl class="grid">
 		    <dt>Username:</dt>
-		        <dd>admin</dd>
+	        <dd>admin</dd>
 		    <dt>Password:</dt>
-		        <dd><em>A unique password will be generated for you.</em></dd>
+	        <dd><em>A unique password will be generated for you.</em></dd>
 		</dl>
 
 		<p><strong>In order to keep your site secure, it is vitally important you change these immediately.</strong>
 
 		<h3>The panel</h3>
-		<img src="<?php echo asset('assets/img/docs/admin.jpg'); ?>" alt="A screenshot of Anchor&rsquo;s admin area" class="screenshot">
+
+		<figure style="overflow: hidden; margin-bottom: 1em;">
+			<img src="<?php echo asset('assets/img/screenshot.png'); ?>" alt="A screenshot of Anchor&rsquo;s admin area">
+		</figure>
 
 		<p>When you log in to Anchor, you&rsquo;ll be greeted with something that looks a bit like this. This is the main administration area, and it&rsquo;s been designed to be super-easy to use.</p>
 

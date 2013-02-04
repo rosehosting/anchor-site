@@ -11,7 +11,7 @@
 		<h2>So, you want to use Anchor.</h2>
 
 		<p>Great! It&rsquo;s a simple, quick process to get Anchor installed on a server.
-		Firstly, though, you should read <a href="/docs/requirements">the requirements</a> to
+		Firstly, though, you should read <a href="/docs/getting-started/requirements">the requirements</a> to
 		make sure you are able to install.</p>
 
 		<p>I&rsquo;ll just wait here while you go do that.</p>
