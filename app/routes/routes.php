@@ -72,7 +72,7 @@ Route::get('forum', function() {
 	Download
 */
 Route::get('download', function() {
-	return Response::redirect('https://github.com/anchorcms/anchor-cms/archive/0.8.2.zip');
+	return Response::redirect('https://github.com/anchorcms/anchor-cms/archive/0.8.3.zip');
 });
 
 /*
@@ -86,7 +86,7 @@ Route::get('resources', function() {
 	Latest Version
 */
 Route::get('version', function() {
-	return '0.8.2';
+	return '0.8.3';
 });
 
 /*
