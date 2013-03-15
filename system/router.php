@@ -3,98 +3,173 @@
 /**
  * Nano
  *
- * Lightweight php framework
+ * Just another php framework
  *
  * @package		nano
- * @author		k. wilson
  * @link		http://madebykieron.co.uk
+ * @copyright	http://unlicense.org/
  */
 
 use FilesystemIterator;
+use ErrorException;
+use InvalidArgumentException;
 
 class Router {
 
-	public static $routes = array();
+	/**
+	 * The current URI
+	 *
+	 * @var str
+	 */
+	public $uri;
 
+	/**
+	 * The current request method
+	 *
+	 * @var str
+	 */
+	public $method;
+
+	/**
+	 * Array of regex patterns to subsitute
+	 * in defined routes
+	 *
+	 * @var array
+	 */
 	public static $patterns = array(
-		'(:num)' => '([0-9]+)',
-		'(:any)' => '([a-zA-Z0-9\.\-_%]+)',
-		'(:all)' => '(.*)'
+		':any' => '[^/]+',
+		':num' => '[0-9]+',
+		':all' => '.*'
 	);
 
-	public static function load($path = null) {
-		if(is_null($path)) $path = APP . 'routes';
+	/**
+	 * The defined routes set by the app
+	 *
+	 * @var array
+	 */
+	public static $routes = array();
 
-		// register routes
-		$fi = new FilesystemIterator($path, FilesystemIterator::SKIP_DOTS);
+	/**
+	 * Actions to call before and after routes
+	 *
+	 * @var array
+	 */
+	public static $actions = array();
 
-		foreach($fi as $file) {
-			if($file->isDir()) {
-				static::load($file->getPathname());
-			}
+	/**
+	 * Create a new instance of the Router class for chaining
+	 *
+	 * @return object
+	 */
+	public static function create($method, $uri) {
+		return new static($method, $uri);
+	}
 
-			if($file->isFile() and $file->isReadable() and pathinfo($file->getPathname(), PATHINFO_EXTENSION) == 'php') {
-				require $file->getPathname();
-			}
+	/**
+	 * Try and match uri with filesystem so we only include
+	 * files relative to our uri and not everything
+	 *
+	 * @param string
+	 */
+	public static function import($uri) {
+		$path = APP . 'routes';
+
+		// try routes.php file
+		if(is_readable($routes = $path . EXT)) {
+			require $routes;
 		}
 
-		// sorting
-		foreach(array_keys(static::$routes) as $method) {
-			krsort(static::$routes[$method]);
+		// try direct match with uri
+		if(is_file($file = $path . DS . $uri . EXT)) {
+			require $file;
+		}
+
+		// try matching a folder
+		$segments = array_diff(explode('/', $uri), array(''));
+
+		while(count($segments)) {
+			// if we have a same name file import it
+			if(is_readable($file = $path . DS . $segments[0] . EXT)) {
+				require $file;
+			}
+
+			// step into dir shift one from the array
+			$path .= DS . array_shift($segments);
 		}
 	}
 
-	public static function register($method, $uri, $action) {
-		static::$routes[$method][trim($uri)] = $action;
+	/**
+	 * Create a new instance of the Router class and import
+	 * app routes from a folder or a single routes.php file
+	 *
+	 * @param string
+	 * @param string
+	 */
+	public function __construct($method, $uri) {
+		$this->uri = $uri;
+		$this->method = strtoupper($method);
 	}
 
-	public static function route($method, $uri) {
-		if($route = static::match(strtolower($method), $uri)) {
-			return $route;
-		}
-	}
+	/**
+	 * Gets array of request method routes
+	 *
+	 * @return array
+	 */
+	public function routes() {
+		$routes = array();
 
-	public static function match($method, $uri) {
-		foreach(static::method($method) as $route => $action) {
-			// try simple match
-			if($uri == $route) {
-				return new Route($action);
-			}
-
-			// replace any pre-defined patterns
-			if(str_contains($route, '(')) {
-				$route = str_replace(array_keys(static::$patterns), array_values(static::$patterns), $route);
-
-				// search for patterns
-				if(preg_match('#^' . $route . '$#', $uri, $matched)) {
-					return new Route($action, array_slice($matched, 1));
-				}
-			}
-
-			// search for wild card
-			if(str_contains($route, '*')) {
-				return new Route($action);
-			}
-		}
-	}
-
-	public static function method($method) {
-		// If there are routes defined as any we copy them
-		// into the requested method routes array
-		if(isset(static::$routes['any'])) {
-			foreach(static::$routes['any'] as $route => $action) {
-				// If the requested method route is defined
-				// skip the `any` route
-				if(array_key_exists($route, static::$routes[$method])) {
-					continue;
-				}
-
-				static::$routes[$method][$route] = $action;
-			}
+		if(array_key_exists($this->method, static::$routes)) {
+			$routes = array_merge($routes, static::$routes[$this->method]);
 		}
 
-		return static::$routes[$method];
+		if(array_key_exists('ANY', static::$routes)) {
+			$routes = array_merge($routes, static::$routes['ANY']);
+		}
+
+		return $routes;
 	}
 
+	/**
+	 * Try and match the request method and uri with defined routes
+	 *
+	 * @return object Return a instance of a Route
+	 */
+	public function match() {
+		$routes = $this->routes();
+
+		// try a simple match
+		if(array_key_exists($this->uri, $routes)) {
+			return new Route($routes[$this->uri]);
+		}
+
+		// search for patterns
+		$searches = array_keys(static::$patterns);
+		$replaces = array_values(static::$patterns);
+
+		foreach($routes as $pattern => $action) {
+			// replace wildcards
+			if(strpos($pattern, ':') !== false) {
+				$pattern = str_replace($searches, $replaces, $pattern);
+			}
+
+			// slice array of matches. $matches[0] will contain the text that
+			// matched the full pattern, $matches[1] will have the text that
+			// matched the first captured parenthesized subpattern, and so on.
+			if(preg_match('#^' . $pattern . '$#', $this->uri, $matched)) {
+				return new Route($action, array_slice($matched, 1));
+			}
+		}
+
+		throw new ErrorException('No routes matched');
+	}
+
+	/**
+	 * Match the request with a route and run it
+	 *
+	 * @return object Response instance
+	 */
+	public function dispatch() {
+		return $this->match()->run();
+	}
 
 }

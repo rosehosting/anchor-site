@@ -3,14 +3,15 @@
 /**
  * Nano
  *
- * Lightweight php framework
+ * Just another php framework
  *
  * @package		nano
- * @author		k. wilson
  * @link		http://madebykieron.co.uk
+ * @copyright	http://unlicense.org/
  */
 
-define('DS', '/');
+define('START_TIME', microtime(true));
+define('DS', DIRECTORY_SEPARATOR);
 define('ENV', getenv('APP_ENV'));
 
 define('PATH', dirname(dirname(__FILE__)) . DS);
@@ -18,4 +19,4 @@ define('APP', PATH . 'app' . DS);
 define('SYS', PATH . 'system' . DS);
 define('EXT', '.php');
 
-require SYS . 'bootstrap' . EXT;
+require SYS . 'start' . EXT;
