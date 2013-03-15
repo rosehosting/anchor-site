@@ -39,6 +39,19 @@ Route::get('version', function() {
 });
 
 /*
+	Github push/pull
+*/
+Route::post('deploy', function() {
+	chdir(PATH);
+	echo exec('git pull');
+
+	$msg = date('Y-m-d H:i:s') . ' --> Received post from ' . $_SERVER['REMOTE_ADDR'];
+	file_put_contents(APP . 'storage/logs/access.log', $msg, FILE_APPEND);
+
+	return Response::json('{result: ok}');
+});
+
+/*
 	404 catch all
 */
 Route::any(':all', function() {
