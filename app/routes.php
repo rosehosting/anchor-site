@@ -49,7 +49,7 @@ Route::post('deploy', function() {
 	chdir(PATH);
 	exec('git pull', $output);
 
-	foreach($output as $line) {
+	foreach((array) $output as $line) {
 		$msg = date('Y-m-d H:i:s') . ' --> ' . $line . PHP_EOL;
 		file_put_contents(APP . 'storage/logs/term.log', $msg, FILE_APPEND);
 	}
