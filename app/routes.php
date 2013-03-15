@@ -41,15 +41,13 @@ Route::get('version', function() {
 /*
 	Github push/pull
 */
-Route::post('deploy', function() {
-
+Route::any('deploy', function() {
 	$msg = date('Y-m-d H:i:s') . ' --> Received post from ' . $_SERVER['REMOTE_ADDR'] . PHP_EOL;
 	file_put_contents(APP . 'storage/logs/access.log', $msg, FILE_APPEND);
 
-	chdir(PATH);
-	exec('git pull', $output);
+	exec('git pull ' . PATH, $output);
 
-	foreach((array) $output as $line) {
+	foreach($output as $line) {
 		$msg = date('Y-m-d H:i:s') . ' --> ' . $line . PHP_EOL;
 		file_put_contents(APP . 'storage/logs/term.log', $msg, FILE_APPEND);
 	}
