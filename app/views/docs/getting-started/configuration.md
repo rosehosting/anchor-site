@@ -1,27 +1,37 @@
 # Configuration
 
-Once you have anchor installed you many wish to change some of the defaults
-that came with Anchor.
+Once you have Anchor installed you many wish to change some of the defaults
+that came with Anchor. To do this, you’ll need to modify some **config files**.
+
+## To find your config files
+
+All configuration files are stored in the `anchor/config` folder, but if you need
+to modify some specific parts of Anchor, continue reading for some common examples.
 
 ### Clean URLs
 
-By default the installer will try and detect if you have Apache and mod_rewrite
-enabled and create the htaccess file for you, if it doesnt below are some
-details about how to enableclean urls.
+By default, the installer will try and detect if you have `Apache` and `mod_rewrite`
+enabled and create the **.htaccess** file for you. However, in some cases (mainly
+due to server restrictions), Anchor is unable to do it for you, and you’ll need to
+do it yourself. Here’s how to enable clean URLs and remove the `index.php/` from the
+URL.
 
-1.	Edit the file `anchor/config/app.php` and set the `url` to your base url.
+1.	Edit the file `anchor/config/app.php` and set the `url` to your base URL
+  	(the path to your Anchor installation — if you’re installing Anchor as a
+  	subfolder, it’s the name of that subfolder).
 
 		return array(
 			...
 			'url' => '/', // or '/anchor' for subfolder called `anchor`
 
-2.	In the same file `anchor/config/app.php` set the `index` to empty.
+2.	In the same file, `anchor/config/app.php`, set the `index` to an empty string.
 
 		return array(
 			...
 			'index' => ''
 
-3.	Setup the server
+3.	Tell your server to listen to the URL changes (you may need to restart your
+  	server).
 
 	#### Apache (mod_rewrite)
 
@@ -44,10 +54,14 @@ details about how to enableclean urls.
 
 ### Timezone
 
-Changing the timezone on Anchor is very stright forward, located the
-file `anchor/config/app.php` and Look for a variable called `timezone`.
-In here you add your new [timezone](http://php.net/manual/en/timezones.php),
-here's how it should look in your app.php file.
+If you need to use a non-UTC timezone (for example, using the `relative_time`
+function in America/Asia), you’ll need to change Anchor’s system timezone.
+Anchor uses [standard PHP timezones](http://php.net/manual/en/timezones.php);
+to find your timezone, check the PHP documentation.
+
+Once you’ve found your timezone string, edit the `timezone` field in
+`anchor/config/app.php` (which should look like below, replacing Europe/London
+with your timezone string).
 
 	return array(
 		...
@@ -56,15 +70,21 @@ here's how it should look in your app.php file.
 
 ### Language
 
-To change the language in Anchor, located the file `anchor/config/app.php`
-and Look for a variable called `language`. In here you add your new language,
-here's how it should look in your app.php file.
+Anchor supports internationalisation, which means you can use Anchor in non-
+English languages. To change the language,
+[download a translation here](http://github.com/anchorcms/anchor-translations),
+upload to your server, and change the `language` variable in
+`anchor/config/app.php'`.
 
 	return array(
 		...
 		'language' => 'en_GB',
 
-#### Avaliable translations ([locale ID](http://www.localeplanet.com/icu/))
+#### Available translations ([locale ID](http://www.localeplanet.com/icu/))
+
+You can view all of Anchor’s translations
+[on the `anchor-translations` GitHub page](http://github.com/anchorcms/anchor-translations),
+but here’s a short list of available (known working) translations.
 
 - German (de_DE)
 - Iberian Spanish (es_ES)
@@ -78,6 +98,6 @@ here's how it should look in your app.php file.
 - Swedish (sv_SE)
 - Welsh (cy_GB)
 
-If you would like to add a new translation please submit a pull request, make
-sure the folder name for the new translate follows the
+If you would like to add a new translation please
+[submit a pull request](https://github.com/anchorcms/anchor-translations/pull/new/master); make sure the folder name for the new translate follows the
 [ISO 639 'underscore' ISO 3166](http://www.localeplanet.com/icu/) format.

@@ -1,5 +1,15 @@
 <?php
 
+if(!function_exists('doc')) {
+	function doc($slug, $name) {
+		$url = str_replace('/docs/', '', filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL));
+		
+		echo '<li' . ($url == $slug ? ' class="active"' : '') . '>';
+			echo Html::link('docs/' . $slug, $name);
+		echo '</li>';
+	}
+}
+
 Route::get(array('docs', 'docs/(:any)', 'docs/(:any)/(:any)'), function() {
 	$args = func_get_args();
 

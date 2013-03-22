@@ -3,7 +3,7 @@
 	<section class="wrap">
 		<?php echo $sidebar; ?>
 
-		<section class="gs gs-3-4">
+		<section class="content">
 			<?php echo $content; ?>
 		</section>
 	</section>

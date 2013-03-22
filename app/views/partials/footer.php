@@ -1,13 +1,13 @@
-		<footer>
-		    <article class="wrap">
-		        <p>&copy; Anchor CMS <?php echo date('Y'); ?>. Powered by Anchor, of course.</p>
+		<footer id="footer">
+		    <div class="wrap">
+		        <small><b>&copy; <?php echo date('Y'); ?>.</b> Anchor is proudly open-source software.</small>
 
 		        <nav>
 		            <a href="//twitter.com/anchorcms">Twitter</a>
 		            <a href="//github.com/anchorcms">GitHub</a>
 		            <a href="//roar.im">Roar</a>
 		        </nav>
-		    </article>
+		    </div>
 		</footer>
 
 		<script>var _gaq = [['_setAccount', 'UA-28956662-1'], ['_trackPageview']];</script>

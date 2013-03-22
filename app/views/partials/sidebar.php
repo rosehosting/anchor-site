@@ -1,55 +1,54 @@
-<aside class="gs gs-1-4">
-	<h3>Getting Started</h3>
+<aside class="sidebar">
+	<h3>Getting started</h3>
 
 	<ul class="submenu">
-		<li><?php echo Html::link('docs/getting-started/requirements', 'Requirements'); ?></li>
-		<li><?php echo Html::link('docs/getting-started/installing', 'Installing'); ?></li>
-		<li><?php echo Html::link('docs/getting-started/upgrading', 'Upgrading'); ?></li>
-		<li><?php echo Html::link('docs/getting-started/configuration', 'Configuration'); ?></li>
+		<?php doc('getting-started/requirements', 'System Requirements'); ?>
+		<?php doc('getting-started/installing', 'Installing Anchor'); ?>
+		<?php doc('getting-started/upgrading', 'Upgrading Anchor'); ?>
+		<?php doc('getting-started/configuration', 'Configuration'); ?>
 	</ul>
 
-	<h3>The Control Panel</h3>
+	<h3>The Admin Interface</h3>
 
 	<ul class="submenu">
-		<li><?php echo Html::link('docs/managing-content/posts', 'Posts (Articles)'); ?></li>
-		<li><?php echo Html::link('docs/managing-content/comments', 'Comments'); ?></li>
-		<li><?php echo Html::link('docs/managing-content/pages', 'Pages'); ?></li>
-		<li><?php echo Html::link('docs/managing-content/menu', 'Menu'); ?></li>
-		<li><?php echo Html::link('docs/managing-content/categories', 'Categories'); ?></li>
-		<li><?php echo Html::link('docs/managing-content/users', 'Users'); ?></li>
-		<li><?php echo Html::link('docs/managing-content/metadata', 'Metadata'); ?></li>
-		<li><?php echo Html::link('docs/managing-content/custom-fields', 'Custom Fields'); ?></li>
-		<li><?php echo Html::link('docs/managing-content/custom-variables', 'Custom Variables'); ?></li>
+		<?php doc('managing-content/posts', 'Posts (Articles)'); ?>
+		<?php doc('managing-content/comments', 'Comments'); ?>
+		<?php doc('managing-content/pages', 'Pages'); ?>
+		<?php doc('managing-content/categories', 'Categories'); ?>
+		<?php doc('managing-content/users', 'Users'); ?>
+		<?php doc('managing-content/metadata', 'Metadata'); ?>
+		<?php doc('managing-content/custom-fields', 'Custom Fields'); ?>
+		<?php doc('managing-content/custom-variables', 'Custom Variables'); ?>
 	</ul>
 
 	<h3>Theming</h3>
 
 	<ul class="submenu">
-		<li><?php echo Html::link('docs/theming/introduction', 'Introduction'); ?></li>
-		<li><?php echo Html::link('docs/theming/file-structure', 'File Structure'); ?></li>
-		<li><?php echo Html::link('docs/theming/custom-templates', 'Custom Templates'); ?></li>
+		<?php doc('theming/introduction', 'Introduction'); ?>
+		<?php doc('theming/file-structure', 'File Structure'); ?>
+		<?php doc('theming/custom-templates', 'Custom Templates'); ?>
 	</ul>
 
 	<h3>Function Reference</h3>
 
 	<ul class="submenu">
-		<li><?php echo Html::link('docs/function-reference/articles', 'Articles'); ?></li>
-		<li><?php echo Html::link('docs/function-reference/categories', 'Categories'); ?></li>
-		<li><?php echo Html::link('docs/function-reference/comments', 'Comments'); ?></li>
-		<li><?php echo Html::link('docs/function-reference/config', 'Config'); ?></li>
-		<li><?php echo Html::link('docs/function-reference/helpers', 'Helpers'); ?></li>
-		<li><?php echo Html::link('docs/function-reference/menus', 'Menus'); ?></li>
-		<li><?php echo Html::link('docs/function-reference/metadata', 'Metadata'); ?></li>
-		<li><?php echo Html::link('docs/function-reference/pages', 'Pages'); ?></li>
-		<li><?php echo Html::link('docs/function-reference/posts', 'Posts'); ?></li>
-		<li><?php echo Html::link('docs/function-reference/search', 'Search'); ?></li>
-		<li><?php echo Html::link('docs/function-reference/users', 'Users'); ?></li>
+		<?php doc('function-reference/articles', 'Articles'); ?>
+		<?php doc('function-reference/categories', 'Categories'); ?>
+		<?php doc('function-reference/comments', 'Comments'); ?>
+		<?php doc('function-reference/config', 'Config'); ?>
+		<?php doc('function-reference/helpers', 'Helpers'); ?>
+		<?php doc('function-reference/menus', 'Menus'); ?>
+		<?php doc('function-reference/metadata', 'Metadata'); ?>
+		<?php doc('function-reference/pages', 'Pages'); ?>
+		<?php doc('function-reference/posts', 'Posts'); ?>
+		<?php doc('function-reference/search', 'Search'); ?>
+		<?php doc('function-reference/users', 'Users'); ?>
 	</ul>
 
 	<h3>Plugins</h3>
 
 	<ul class="submenu">
-		<li><?php echo Html::link('docs/plugins/introduction', 'Introduction'); ?></li>
-		<li><?php echo Html::link('docs/plugins/file-structure', 'File Structure'); ?></li>
+		<?php doc('plugins/introduction', 'Introduction'); ?>
+		<?php doc('plugins/file-structure', 'File Structure'); ?>
 	</ul>
 </aside>
