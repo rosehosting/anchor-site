@@ -157,7 +157,7 @@ section.features {
     }
     section.features article img {
     	position: relative;
-    	top: 2px;
+    	top: 4px;
     	
         float: left;
         margin-right: 15px;
