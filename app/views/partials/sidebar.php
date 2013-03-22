@@ -50,5 +50,6 @@
 	<ul class="submenu">
 		<?php doc('plugins/introduction', 'Introduction'); ?>
 		<?php doc('plugins/file-structure', 'File Structure'); ?>
+		<?php doc('plugins/plugin-file', 'The <code>plugin.php</code> file'); ?>
 	</ul>
 </aside>

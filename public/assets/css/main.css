@@ -228,6 +228,9 @@ section.features {
 	.sidebar li {
 		border-bottom: 1px solid #edeff2;
 	}
+	    .sidebar li.active {
+	        border-bottom: 1px solid #a4acbb;
+	    }
 	.sidebar li a {
 		display: block;
 		padding: 8px 15px;
@@ -244,16 +247,18 @@ section.features {
 		.sidebar li.active a {
 			position: relative;
 			top: -1px;
-			margin-bottom: -2px;
+			margin-bottom: -1px;
 			
 			border-top: 1px solid #a4acbb;
-			border-bottom: 1px solid #a4acbb;
 			
 			background: #b4bbc8;
 			color: #fff;
 			
 			font-weight: 500;
 		}
+	.sidebar code {
+		font-size: 12px;
+	}
 		
 .sidebar, .content {
 	margin: 50px 0;
@@ -286,6 +291,29 @@ section.features {
 		margin-left: -10px;
 		margin-bottom: 10px;
 	}
+	
+.note {
+    padding: 15px 20px 20px 50px;
+    margin-bottom: 20px;
+    
+    background: #fcf8f1 url('../img/info.png') no-repeat 20px 22px;
+    color: #897363;
+    
+    font-size: 13px;
+    line-height: 19px;
+    
+    border-radius: 5px;
+}
+    .note code {
+        font-size: 11px;
+    }
+    .note b {
+        display: block;
+        padding-bottom: 5px;
+        
+        font-size: 15px;
+        line-height: 28px;
+    }
         
 @-webkit-keyframes slide {
     0% { bottom: -300px; opacity: 0; }

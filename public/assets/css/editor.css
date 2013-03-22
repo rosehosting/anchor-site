@@ -24,3 +24,8 @@ pre .function, pre .variable {
 pre .support, pre .keyword {
 	color: #d46041;
 }
+
+.string {
+    color: #576a8d;
+    background: rgba(179,197,233,.05);
+}
