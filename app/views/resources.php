@@ -1,14 +1,14 @@
 <?php echo $header; ?>
 
 	<section class="wrap">
-		<aside class="gs gs-1-4">
+		<aside class="sidebar">
 			<ul>
 				<li><a href="#logos">Logos</a></li>
 				<li><a href="#guidelines">Design Guidelines</a></li>
 				<li><a href="#hosts">Recommended Hosts</a></li>
 			</ul>
 		</aside>
-		<section class="gs gs-3-4">
+		<section class="content">
 			<a name="logos"></a>
 			<h3>Logos</h3>
 

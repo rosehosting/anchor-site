@@ -22,13 +22,18 @@ body {
 }
 
 p a, .content a {
+    padding-bottom: 1px;
+    
     color: #3466b1;
-    font-weight: 500;
     text-decoration: none;
+    
+    border-bottom: 1px solid #e3edfb;
 }
     p a:hover, .content a:hover {
         background: #f1f5fb;
         color: #26559b;
+        
+        border-color: #ccdcf3;
     }
     
 h2, h3, h4, h5, h6, b, strong {

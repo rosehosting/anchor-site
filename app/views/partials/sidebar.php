@@ -27,6 +27,7 @@
 		<?php doc('theming/introduction', 'Introduction'); ?>
 		<?php doc('theming/file-structure', 'File Structure'); ?>
 		<?php doc('theming/custom-templates', 'Custom Templates'); ?>
+		<?php doc('plugins/the-loop', 'The Loop'); ?>
 	</ul>
 
 	<h3>Function Reference</h3>

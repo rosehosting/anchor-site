@@ -27,7 +27,7 @@
 				</a>
 
 				<ul>
-				<?php foreach(array('docs', 'forum', 'download') as $link): ?>
+				<?php foreach(array('docs', 'resources', 'forum', 'download') as $link): ?>
 					<?php $class = (strpos($page, $link) !== false) ? array('class' => 'active') : array(); ?>
 					<?php echo Html::element('li', Html::link($link, ucwords($link)), $class); ?>
 				<?php endforeach; ?>

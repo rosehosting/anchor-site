@@ -19,11 +19,7 @@ Before installing, make sure your platform has the [required](/docs/getting-star
 6.	Navigate your browser to your Anchor installation URL, if you have placed Anchor
 	in a sub directory make sure you append the folder name to the URL:
 
-		http://mydomainname.com/
-
-	Or, if you installed Anchor in a sub directory:
-
-		http://mydomainname.com/anchor/
+<pre><span class="comment">http://mydomainname.com</span>/anchor</pre>
 
 7.  Follow the instructions in the installer.
 

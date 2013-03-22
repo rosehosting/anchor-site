@@ -9,7 +9,7 @@
         width: 1000px;
     }
     .wrap.spaced, #content {
-    	min-height: 210px;
+    	min-height: 248px;
     	padding: 80px 0 60px;
     }
     .wrap > * {
