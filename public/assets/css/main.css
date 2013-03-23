@@ -113,6 +113,9 @@ p {
             
             color: #727f94;
         }
+            #top nav .download {
+                display: none;
+            }
             #top nav a:hover {
                 color: #465263;
             }
