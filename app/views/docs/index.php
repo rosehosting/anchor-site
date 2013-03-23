@@ -1,11 +1,11 @@
 <?php echo $header; ?>
 
 	<section class="wrap">
-		<?php echo $sidebar; ?>
-
 		<section class="content">
 			<?php echo $content; ?>
 		</section>
+		
+		<?php echo $sidebar; ?>
 	</section>
 
 	<script src="<?php echo asset('assets/js/rainbow-custom.min.js'); ?>"></script>

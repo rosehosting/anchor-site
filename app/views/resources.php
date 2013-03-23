@@ -1,13 +1,6 @@
 <?php echo $header; ?>
 
 	<section class="wrap">
-		<aside class="sidebar">
-			<ul>
-				<li><a href="#logos">Logos</a></li>
-				<li><a href="#guidelines">Design Guidelines</a></li>
-				<li><a href="#hosts">Recommended Hosts</a></li>
-			</ul>
-		</aside>
 		<section class="content">
 			<a name="logos"></a>
 			<h3>Logos</h3>
@@ -50,6 +43,14 @@
 				<li><a href="http://www.engineyard.com/">Engine Yard</a></li>
 			</ul>
 		</section>
+		
+		<aside class="sidebar">
+			<ul>
+				<li><a href="#logos">Logos</a></li>
+				<li><a href="#guidelines">Design Guidelines</a></li>
+				<li><a href="#hosts">Recommended Hosts</a></li>
+			</ul>
+		</aside>
 	</section>
 
 <?php echo $footer; ?>

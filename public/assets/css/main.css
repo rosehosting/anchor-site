@@ -48,7 +48,7 @@ p + small {
 	color: #969fae;
 }
 
-button, .btn {
+button, .btn, #top nav .download a {
     display: inline-block;
     width: auto;
     padding: 10px 20px;
@@ -68,8 +68,9 @@ button, .btn {
         font-style: normal;
         opacity: .7;
     }
-    button:hover, .btn:hover {
+    button:hover, .btn:hover, #top nav .download a:hover {
         background: #4175cb;
+        color: #fff;
     }
     
 h2 {
@@ -98,6 +99,7 @@ p {
     background: #e4e7ec;
 }
     #top nav {
+        overflow: visible;
         padding-bottom: 40px;
     }
         #top nav img, #top nav li {
@@ -114,6 +116,13 @@ p {
             color: #727f94;
         }
             #top nav .download {
+                position: relative;
+                top: -4px;
+                
+                float: right;
+                padding-right: 0;
+            }
+            .home #top nav .download {
                 display: none;
             }
             #top nav a:hover {
