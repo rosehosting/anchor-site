@@ -131,6 +131,9 @@ p {
             #top nav .active a {
                 color: #2e66b9;
             }
+        #top ul {
+            max-width: 1000px;
+        }
     #top h1 {
     	position: relative;
     	z-index: 2;
