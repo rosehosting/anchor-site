@@ -56,9 +56,9 @@ Route::any('deploy', function() {
 });
 
 /*
-	404 catch all
+	404 error
 */
-Route::any(':all', function() {
+Route::error('404', function() {
 	$output = Layout::create('error/404', array(
 		'title' => 'Page not found'
 	))->yield();

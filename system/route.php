@@ -18,6 +18,13 @@ use Closure;
 class Route {
 
 	/**
+	 * Array of collection actions
+	 *
+	 * @var array
+	 */
+	public static $collection = array();
+
+	/**
 	 * Array of callable functions
 	 *
 	 * @var array
@@ -56,6 +63,9 @@ class Route {
 			$arguments = array('main' => $arguments);
 		}
 
+		// add collection actions
+		$arguments = array_merge($arguments, static::$collection);
+
 		foreach((array) $patterns as $pattern) {
 			Router::$routes[$method][$pattern] = $arguments;
 		}
@@ -69,6 +79,23 @@ class Route {
 	 */
 	public static function action($name, $callback) {
 		Router::$actions[$name] = $callback;
+	}
+
+	/**
+	 * Start a collection of routes with common actions
+	 *
+	 * @param string
+	 * @param string|closure
+	 */
+	public static function collection($actions, $definitions) {
+		// start collection
+		static::$collection = $actions;
+
+		// run definitions
+		call_user_func($definitions);
+
+		// end of collection
+		static::$collection = array();
 	}
 
 	/**
@@ -104,7 +131,7 @@ class Route {
 	 * @param string
 	 */
 	public function after($response) {
-		if( ! isset($this->actions['after'])) return;
+		if( ! isset($this->callbacks['after'])) return;
 
 		foreach(explode(',', $this->callbacks['after']) as $action) {
 			call_user_func(Router::$actions[$action], $response);
@@ -130,15 +157,15 @@ class Route {
 
 		// If the response was a view get the output and create response
 		if($response instanceof View) {
-			$response = Response::create($response->yield());
+			return Response::create($response->yield());
 		}
 
-		// If the output was a string create response
-		if(is_string($response)) {
-			$response = Response::create($response);
+		// If we have a response object return it
+		if($response instanceof Response) {
+			return $response;
 		}
 
-		return $response;
+		return Response::create((string) $response);
 	}
 
 }

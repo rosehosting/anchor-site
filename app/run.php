@@ -29,4 +29,10 @@ Autoloader::directory(array(
 /**
  * Set the latest version number
  */
-define('LATEST_VERSION', '0.8.3');
+define('LATEST_VERSION', '0.9');
+
+/**
+ * Import defined routes
+ */
+require APP . 'routes' . EXT;
+require APP . 'routes/docs' . EXT;
