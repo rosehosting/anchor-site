@@ -46,6 +46,19 @@
 		<?php doc('function-reference/users', 'Users'); ?>
 	</ul>
 
+	<h3>Class Reference</h3>
+
+	<ul class="submenu">
+		<?php doc('class-reference/base', 'Base'); ?>
+		<?php doc('class-reference/category', 'Category'); ?>
+		<?php doc('class-reference/comment', 'Comment'); ?>
+		<?php doc('class-reference/extend', 'Extend'); ?>
+		<?php doc('class-reference/page', 'Page'); ?>
+		<?php doc('class-reference/plugin', 'Plugin'); ?>
+		<?php doc('class-reference/post', 'Post'); ?>
+		<?php doc('class-reference/user', 'User'); ?>
+	</ul>
+
 	<h3>Plugins</h3>
 
 	<ul class="submenu">
