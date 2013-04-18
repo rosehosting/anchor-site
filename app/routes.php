@@ -52,13 +52,13 @@ Route::any('deploy', function() {
 		file_put_contents(APP . 'storage/logs/term.log', $msg, FILE_APPEND);
 	}
 
-	return Response::json('{result: ok}');
+	return Response::json('{result: true}');
 });
 
 /*
 	404 error
 */
-Route::error('404', function() {
+Route::not_found(function() {
 	$output = Layout::create('error/404', array(
 		'title' => 'Page not found'
 	))->yield();
