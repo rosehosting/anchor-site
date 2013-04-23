@@ -16,10 +16,11 @@
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
 		<meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0">
+		<meta name="wot-verification" content="d48de25abfc61df73516"/>
 	</head>
-	
+
 	<body class="<?php echo isset($homepage) ? 'home' : ''; ?>">
-	
+
 		<header id="top">
 			<nav class="wrap">
 				<a href="/" title="Go to the Anchor homepage">
@@ -34,13 +35,13 @@
 				</ul>
 			</nav>
 
-			
+
 			<?php if(isset($homepage)): ?>
 				<div class="wrap">
 					<h1>Anchor is a super-simple,<br> lightweight blog system, <br>made to let you just write.</h1>
 					<?php echo Html::link('download', 'Download <span>version ' . LATEST_VERSION . '</span>', array('class' => 'btn')); ?>
 				</div>
-				
+
 				<img class="screenie" alt="Screenshot of Anchor CMS" src="<?php echo asset('assets/img/screenshot.png'); ?>">
 			<?php elseif(isset($title)): ?>
 				<h1 class="wrap"><?php echo $title; ?></h1>
