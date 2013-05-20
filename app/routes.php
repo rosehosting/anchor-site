@@ -38,6 +38,17 @@ Route::get('resources', function() {
 });
 
 /*
+	Stats
+*/
+Route::get('stats', function() {
+	$vars['title'] = 'Stats';
+	$vars['downloads'] = Query::table('downloads')->count();
+	$vars['active'] = Query::table('active')->count();
+
+	return Layout::create('stats', $vars);
+});
+
+/*
 	Latest Version
 */
 Route::get('version', function() {
