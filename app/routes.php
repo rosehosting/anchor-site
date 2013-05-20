@@ -20,11 +20,7 @@ Route::get('forum', function() {
 	Download
 */
 Route::get('download', function() {
-	Query::table('downloads')->insert(array(
-		'date' => $_SERVER['REQUEST_TIME'],
-		'ip' => $_SERVER['REMOTE_ADDR'],
-		'ua' => $_SERVER['HTTP_USER_AGENT']
-	));
+	Query::table('downloads')->insert(get_insert_stats());
 
 	return Response::redirect('https://github.com/anchorcms/anchor-cms/archive/' . LATEST_VERSION . '.zip');
 });
@@ -52,11 +48,7 @@ Route::get('stats', function() {
 	Latest Version
 */
 Route::get('version', function() {
-	Query::table('active')->insert(array(
-		'date' => $_SERVER['REQUEST_TIME'],
-		'ip' => $_SERVER['REMOTE_ADDR'],
-		'ua' => $_SERVER['HTTP_USER_AGENT']
-	));
+	Query::table('active')->insert(get_insert_stats());
 
 	return Response::create(LATEST_VERSION, 200, array('content-type' => 'text/plain'));
 });

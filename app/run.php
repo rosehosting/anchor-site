@@ -31,6 +31,14 @@ Autoloader::directory(array(
  */
 define('LATEST_VERSION', '0.9');
 
+function get_insert_stats() {
+	return array(
+		'date' => Arr::get($_SERVER, 'REQUEST_TIME', gmdate('U')),
+		'ip' => Arr::get($_SERVER, 'REMOTE_ADDR', '0.0.0.0'),
+		'ua' => Arr::get($_SERVER, 'HTTP_USER_AGENT', '')
+	);
+}
+
 /**
  * Import defined routes
  */
