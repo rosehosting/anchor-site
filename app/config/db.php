@@ -6,7 +6,7 @@ return array(
 	'connections' => array(
 		'sqlite' => array(
 			'driver' => 'sqlite',
-			'database' => ':memory:'
+			'database' => APP . 'storage/db/stats.db'
 		),
 
 		'mysql' => array(

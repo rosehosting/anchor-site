@@ -20,6 +20,12 @@ Route::get('forum', function() {
 	Download
 */
 Route::get('download', function() {
+	Query::table('downloads')->insert(array(
+		'date' => $_SERVER['REQUEST_TIME'],
+		'ip' => $_SERVER['REMOTE_ADDR'],
+		'ua' => $_SERVER['HTTP_USER_AGENT']
+	));
+
 	return Response::redirect('https://github.com/anchorcms/anchor-cms/archive/' . LATEST_VERSION . '.zip');
 });
 
@@ -35,6 +41,12 @@ Route::get('resources', function() {
 	Latest Version
 */
 Route::get('version', function() {
+	Query::table('active')->insert(array(
+		'date' => $_SERVER['REQUEST_TIME'],
+		'ip' => $_SERVER['REMOTE_ADDR'],
+		'ua' => $_SERVER['HTTP_USER_AGENT']
+	));
+
 	return Response::create(LATEST_VERSION, 200, array('content-type' => 'text/plain'));
 });
 
@@ -42,13 +54,13 @@ Route::get('version', function() {
 	Github push/pull
 */
 Route::any('deploy', function() {
-	$msg = date('Y-m-d H:i:s') . ' --> Received post from ' . $_SERVER['REMOTE_ADDR'] . PHP_EOL;
+	$msg = gmdate('Y-m-d H:i:s') . ' --> Received post from ' . $_SERVER['REMOTE_ADDR'] . PHP_EOL;
 	file_put_contents(APP . 'storage/logs/access.log', $msg, FILE_APPEND);
 
 	exec('git pull ' . PATH, $output);
 
 	foreach($output as $line) {
-		$msg = date('Y-m-d H:i:s') . ' --> ' . $line . PHP_EOL;
+		$msg = gmdate('Y-m-d H:i:s') . ' --> ' . $line . PHP_EOL;
 		file_put_contents(APP . 'storage/logs/term.log', $msg, FILE_APPEND);
 	}
 
