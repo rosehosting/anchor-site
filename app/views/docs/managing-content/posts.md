@@ -25,8 +25,7 @@ The extra fields (excluding custom fields) are explained below.
 The unique identifier and section of your blog’s URL that tells you about the post.
 Useful for SEO and usability (or guessability).
 
-<pre><span class="comment">http://mydomain.com/blog/</span>
-<b>my-article-slug-example</b></pre>
+<pre><span class="comment">http://mydomain.com/blog/</span><b>my-article-slug-example</b></pre>
 
 #### Description
 

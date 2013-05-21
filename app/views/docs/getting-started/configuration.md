@@ -71,19 +71,17 @@ with your timezone string).
 ### Language
 
 Anchor supports internationalisation, which means you can use Anchor in non-
-English languages. To change the language,
-[download a translation here](http://github.com/anchorcms/anchor-translations),
-upload to your server, and change the `language` variable in
+English languages. To change the language, edit the `language` variable in
 `anchor/config/app.php'`.
 
 	return array(
 		...
 		'language' => 'en_GB',
 
-#### Available translations ([locale ID](http://www.localeplanet.com/icu/))
+### Available translations
 
 You can view all of Anchor’s translations
-[on the `anchor-translations` GitHub page](http://github.com/anchorcms/anchor-translations),
+[on the GitHub page](https://github.com/anchorcms/anchor-cms/tree/master/anchor/language),
 but here’s a short list of available (known working) translations.
 
 - German (de_DE)
@@ -99,5 +97,5 @@ but here’s a short list of available (known working) translations.
 - Welsh (cy_GB)
 
 If you would like to add a new translation please
-[submit a pull request](https://github.com/anchorcms/anchor-translations/pull/new/master); make sure the folder name for the new translate follows the
+[submit a pull request](https://github.com/anchorcms/anchor-cms/pull/new/master); make sure the folder name for the new translate follows the
 [ISO 639 'underscore' ISO 3166](http://www.localeplanet.com/icu/) format.

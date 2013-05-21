@@ -4,38 +4,64 @@ Anchor’s plugin system works slightly differently to many other content
 management systems, in the fact that it’s all handled by a class — this
 way, everything is object-oriented and more maintainable.
 
-To use a [plugin hook](/docs/plugins/hooks), you call it as a method.
-An example of this is below (the `article_html` method/function).
+Your plugin will extend Anchor's built-in `Plugin` class. There are 3 main
+functions which Anchor will call in your plugin to get infomration about
+how you want to extend functionality.
 
-    class Test_Plugin extends Plugin {
-        //  Called when your plugin gets set up
-        function __construct($data) {
-            $this->data = $data;
-        }
-        
-        //  Modify all article HTML, prepending the string "hello world"
-        function article_html($str) {
-            return 'hello world ' . $str;
-        }
-    }
-    
-You can have as many function calls inside the class as you want, and
-any spare functions can go in the functions.php file, the same as a
-theme.
+* `register_routes`
+* `register_protected_routes`
+* `register_filters`
 
-## How a method works
+## Routes
 
-    /* ... */
-    function article_html($str) {
-        return 'hello world ' . $str;
-    }
-    /* ... */
-    
-In this example, we are modifying the `article_html` hook, and taking
-`$str` as a parameter. Parameters (if any) are given along with the hook
-on their page, but the first parameter is usually the pre-processed
-content.
+This function should return an `array` of uri's along with
+their [callbacks](http://php.net/manual/en/language.types.callable.php).
 
-The returned value is what will get passed on to future plugins and
-theme files. It does not need to contain the original `$str`, but it’s
-probably a good idea to do so, as other things may rely on it.
+	/**
+	 * Register routes with the router
+	 * Must return an array of path => callback
+	 */
+	public function register_routes() {
+		return array(
+			'GET' => array(
+				'author/(:any)' => array($this, 'author')
+			)
+		);
+	}
+
+## Protected Routes
+
+Almost the exact same as `register_routes` except a valid user session must be
+present before the callback is ran.
+
+	/**
+	 * Register routes with the router
+	 * Must return an array of path => callback
+	 */
+	public function register_protected_routes() {
+		return array(
+			'GET' => array(
+				'admin/author/(:any)' => array($this, 'author')
+			)
+		);
+	}
+
+## Filters
+
+This function must also return a `array` of callbacks but this time the keys are
+the object -> properties you would like to modify or read.
+
+	/**
+	 * Registers content filters to apply changes to when called
+	 *
+	 * array('object' => array('property' => callback))
+	 */
+	public function register_filters() {
+		return array(
+			'post' => array(
+				'title' => function($string) {
+					return $string . ' - woooooo';
+				}
+			)
+		);
+	}

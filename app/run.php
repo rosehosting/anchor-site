@@ -31,6 +31,20 @@ Autoloader::directory(array(
  */
 define('LATEST_VERSION', '0.9');
 
+function doc($slug, $name, $classes = array()) {
+	$url = str_replace('/docs/', '', filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL));
+
+	if($url == $slug) {
+		$classes = array_merge(array('active'), $classes);
+	}
+
+	$html = count($classes) ? ' class="' . implode(' ', $classes) . '"' : '';
+
+	echo '<li' . $html . '>';
+		echo Html::link('docs/' . $slug, $name);
+	echo '</li>';
+}
+
 function get_insert_stats() {
 	return array(
 		'date' => Arr::get($_SERVER, 'REQUEST_TIME', gmdate('U')),

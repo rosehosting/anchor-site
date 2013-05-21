@@ -1,7 +1,7 @@
 # Introduction
 
 Theming in Anchor is easy; all you need is some basic knowledge of HTML, CSS,
-and [PHP](http://php.net). With our [functions](/docs/theming/functions), it’s
+and [PHP](http://php.net). With our functions, it’s
 a breeze making a theme.
 
 ## Getting started
