@@ -21,11 +21,11 @@ lets tar gzip it to a safe location.
 ### Upgrading from 0.8 and above
 
 1.	Download the [latest version](/download)
-2.	Extract the archive and copy/paste/overwrite the `anchor` and `system`
+2.	Backup your current live `anchor/config/app.php` and `anchor/config/db.php` files—we recommend creating a local copy.
+3.	Extract the archive and copy/paste/overwrite the `anchor` and `system`
 	folders and the `index.php` file.
-3.	Rename `anchor/config/database.php` --> `anchor/config/db.php`
-4.	Rename `anchor/config/application.php` --> `anchor/config/app.php`
-5.	Done!
+4.	Upload your downloaded `app.php` and `db.php` files to your new `anchor/config` folder.
+6.	Done!
 
 ### Upgrading from older versions (0.8 and below)
 
