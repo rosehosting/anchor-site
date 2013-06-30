@@ -16,46 +16,22 @@ use System\Database\Connector;
 class Sqlite extends Connector {
 
 	/**
-	 * Holds the php pdo instance
-	 *
-	 * @var object
-	 */
-	private $pdo;
-
-	/**
-	 * The sqlite left wrapper
+	 * The sqlite wrapper
 	 *
 	 * @var string
 	 */
-	public $lwrap = '[';
-
-	/**
-	 * The sqlite right wrapper
-	 *
-	 * @var string
-	 */
-	public $rwrap = ']';
+	public $wrapper = '[%s]';
 
 	/**
 	 * Create a new sqlite connector
 	 *
 	 * @param array
 	 */
-	public function __construct($config) {
+	protected function connect($config) {
 		extract($config);
 
 		$dns = 'sqlite:' . $database;
-		$this->pdo = new PDO($dns);
-		$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	}
-
-	/**
-	 * Return the pdo instance
-	 *
-	 * @param object PDO Object
-	 */
-	public function instance() {
-		return $this->pdo;
+		return new PDO($dns);
 	}
 
 }

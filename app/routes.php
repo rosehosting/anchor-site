@@ -8,6 +8,14 @@ Route::get(array('/', 'home'), function() {
 });
 
 /*
+	Blog
+*/
+Route::get('blog', function() {
+	$base = 'http://blog.anchorcms.com/';
+	return Response::create('', 301, array('Location' => $base));
+});
+
+/*
 	Forum
 */
 Route::get('forum', function() {
