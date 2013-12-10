@@ -27,23 +27,30 @@
 				<li><a href="http://bluehost.com/">Bluehost</a></li>
 				<li><a href="http://hostgator.com/">Hostgator</a></li>
 				<li><a href="http://asmallorange.com/">A Small Orange</a></li>
+				<li><a href="http://ehostdirect.com/">eHostDirect</a></li>
 			</ul>
 
 			<p><strong><abbr title="Virtual Private Server">VPS<abbr></strong></p>
 
 			<ul>
-				<li><a href="http://www.linode.com/">Linode</a></li>
+				<li><a href="http://linode.com/">Linode</a></li>
 				<li><a href="http://mediatemple.net/webhosting/ve/">Media Temple</a></li>
 			</ul>
 
 			<p><strong><abbr title="Platform as a Service">PaaS<abbr></strong></p>
 
 			<ul>
-				<li><a href="http://www.appfog.com/">App Fog</a></li>
-				<li><a href="http://www.engineyard.com/">Engine Yard</a></li>
+				<li><a href="http://appfog.com/">App Fog</a></li>
+				<li><a href="http://engineyard.com/">Engine Yard</a></li>
+				<li>
+					<a href="http://openshift.com/">OpenShift</a>
+					<ul>
+						<li><a href="http://www.mseri.me/deploying-anchor-cms-on-openshift/">Deploying Anchor CMS on OpenShift</a></li>
+					</ul>
+				</li>
 			</ul>
 		</section>
-		
+
 		<aside class="sidebar">
 			<ul>
 				<li><a href="#logos">Logos</a></li>
