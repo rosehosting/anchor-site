@@ -20,6 +20,6 @@ Returns the name of the currently logged-in user.
 
 Returns the role of the currently logged-in user. Can be administrator, editor, or user.
 
-### `user_authed_role`
+### `user_authed_real_name`
 
 Returns the real name of the currently logged-in user, as set in the admin panel.
