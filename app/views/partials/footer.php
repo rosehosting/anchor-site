@@ -9,6 +9,8 @@
 		        </nav>
 		    </div>
 		</footer>
+		
+		<script src="<?php echo asset('assets/js/retina.js'); ?>"></script>
 
 		<script>var _gaq = [['_setAccount', 'UA-28956662-1'], ['_trackPageview']];</script>
 		<script src="//google-analytics.com/ga.js"></script>

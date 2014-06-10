@@ -22,24 +22,45 @@
 	<body class="<?php echo isset($homepage) ? 'home' : ''; ?>">
 
 		<header id="top">
-			<nav class="wrap">
-				<a href="/" title="Go to the Anchor homepage">
+			<nav role="navigation">
+				<a id="logo" href="/" title="Go to the Anchor homepage">
 					<img src="<?php echo asset('assets/img/logo.png'); ?>" alt="Anchor CMS">
 				</a>
 
 				<ul>
-				<?php foreach(array('blog', 'docs', 'resources', 'forum', 'download') as $link): ?>
+				<?php foreach(array(
+					'features' => 'Features', 'docs' => 'Documentation', 'blog' => 'News &amp; Updates', 'forum' => 'Community'
+				) as $link => $title): ?>
 					<?php $class = (strpos($page, $link) !== false) ? array('class' => $link . ' active') : array('class' => $link); ?>
-					<?php echo Html::element('li', Html::link($link, ucwords($link)), $class); ?>
+					<?php echo Html::element('li', Html::link($link, $title), $class); ?>
 				<?php endforeach; ?>
+					<li class="dropdown">
+						<a href="//github.com/anchorcms">Elsewhere</a>
+						
+						<ul>
+							<li><a href="//github.com/anchorcms/anchor-cms">GitHub</a></li>
+							<li><a href="//anchorthemes.com">Themes <span>Directory</span></a></li>
+							<li><a href="//anchorplugins.com">Plugins <span>Directory</span></a></li>
+							<li><a href="//anchorshowcase.com">Showcase</a></li>
+							<li><a href="//twitter.com/anchorcms">Twitter</a></li>
+						</ul>
+					</li>
 				</ul>
+				
+				<p class="buttons">
+					<?php echo Html::link('download', 'Download <span>Anchor ' . LATEST_VERSION . '</span>', array('class' => 'btn')); ?>
+					<a href="//demo.anchorcms.com" class="btn subdued">Play with a demo</a>
+				</p>
 			</nav>
 
 
 			<?php if(isset($homepage)): ?>
 				<div class="wrap">
-					<h1>Anchor is a super-simple,<br> lightweight blog system, <br>made to let you just write.</h1>
+					<h1>Probably the <i>easiest</i> way to blog. <span class="cursor"></span></h1>
+					<p>Anchor’s a super-simple blog system, made to let you just write.</p>
+
 					<?php echo Html::link('download', 'Download <span>version ' . LATEST_VERSION . '</span>', array('class' => 'btn')); ?>
+					<a href="//stripe.com" class="btn subdued">Donate $5 to continue development</a>
 				</div>
 
 				<img class="screenie" alt="Screenshot of Anchor CMS" src="<?php echo asset('assets/img/screenshot.png'); ?>">

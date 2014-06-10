@@ -29,7 +29,7 @@ Autoloader::directory(array(
 /**
  * Set the latest version number
  */
-define('LATEST_VERSION', '0.9.1');
+define('LATEST_VERSION', '1.0');
 
 function doc($slug, $name, $classes = array()) {
 	$url = str_replace('/docs/', '', filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL));
