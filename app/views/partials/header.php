@@ -56,11 +56,13 @@
 
 			<?php if(isset($homepage)): ?>
 				<div class="wrap">
-					<h1>Probably the <i>easiest</i> way to blog. <span class="cursor"></span></h1>
+					<h1>
+						<span data-typer>Probably the easiest way to blog</span><span class="cursor"></span>
+					</h1>
 					<p>Anchor’s a super-simple blog system, made to let you just write.</p>
 
 					<?php echo Html::link('download', 'Download <span>version ' . LATEST_VERSION . '</span>', array('class' => 'btn')); ?>
-					<a href="//stripe.com" class="btn subdued">Donate $5 to continue development</a>
+					<a href="//stripe.com" class="btn subdued">Donate $5</a>
 				</div>
 
 				<img class="screenie" alt="Screenshot of Anchor CMS" src="<?php echo asset('assets/img/screenshot.png'); ?>">

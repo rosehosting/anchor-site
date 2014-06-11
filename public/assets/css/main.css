@@ -2,6 +2,11 @@
 @import 'layout.css';
 @import '//fonts.googleapis.com/css?family=Cousine:400,700|Alegreya:400italic,700italic,400,700|Karla:400,400italic,700,700italic';
 
+
+::selection {
+	background: #fff8d1;
+}
+
 body, input, textarea, select, button {
 	font: 18px/28px Karla, sans-serif;
 }
@@ -74,6 +79,10 @@ h1, h2, h3, h4 {
 		font-size: 32px;
 		line-height: 42px;
 	}
+		.home h3 {
+			color: #b3aeaa;
+			font-size: 19px;
+		}
 	h4 {
 		font-size: 26px;
 		line-height: 32px;
@@ -83,6 +92,9 @@ h1, h2, h3, h4 {
 	background: #1b1a21;
 	color: #8b8a94;
 }
+	#top ::selection {
+		background: #8b8a94;
+	}
 	#top nav {
 		padding: 30px 35px;
 	}
@@ -210,7 +222,7 @@ h1, h2, h3, h4 {
 		
 		position: relative;
 		top: 8px;
-		left: -4px;
+		left: 4px;
 		
 		background: #363442;
 		
@@ -222,7 +234,9 @@ h1, h2, h3, h4 {
 	}
 	
 .home #top .wrap {
-	padding: 30px 0 10px;
+	position: relative;
+	padding: 60px 0 20px;
+	
 	text-align: center;
 }
 	.home #top .wrap h1 {
@@ -244,6 +258,32 @@ h1, h2, h3, h4 {
 	
 	background: #fff;
 }
+
+
+/**
+ *   Home page animation
+ */
+ 
+#top .wrap, .screenie, #top .wrap p {
+	-webkit-transition: top 1s, opacity 1s, margin-top 1s;
+	-moz-transition: top 1s, opacity 1s, margin-top 1s;
+	transition: top 1s, opacity 1s, margin-top 1s;
+}
+
+.typing #top, .typing {
+	overflow: hidden;
+}
+	.typing #top .wrap {
+		margin-top: 200px;
+	}
+		.typing #top .wrap p, .typing #top .wrap a {
+			opacity: 0;
+			pointer-events: none;
+		}
+	.typing .screenie {
+		top: 400px;
+		opacity: 0;
+	}
 	
 @-webkit-keyframes flicker { 0% { opacity: 0 } 50% { opacity: 0 } 50.1% { opacity: 1 }}
 @-moz-keyframes flicker { 0% { opacity: 0 } 50% { opacity: 0 } 50.1% { opacity: 1 } }

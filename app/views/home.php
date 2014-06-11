@@ -2,7 +2,9 @@
 
 	<section class="content">
 		<div class="wrap">
-			what up
+			<header>
+				<h3>Why use Anchor?</h3>
+			</header>
 		</div>
 	</section>
 
