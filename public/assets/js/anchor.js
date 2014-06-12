@@ -12,14 +12,15 @@ if(typer.nodeType) {
 	body.className += ' typing';
 	
 	var typerInterval = setInterval(function() {
-		typedText = typerText.substr(0, typedText.length + 1);
+		var len = typedText.length;
 		
-		typer.innerHTML = typedText;
+		typer.innerHTML = typedText = typerText.substr(0, len + 1);
 		
-		console.log(typedText, typerText);
+		if(len + 5 >= typerText.length) {
+			body.className = oldClass;
+		}
 		
 		if(typedText == typerText) {
-			body.className = oldClass;
 			clearInterval(typerInterval);
 		}
 	}, 100);

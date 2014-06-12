@@ -228,9 +228,9 @@ h1, h2, h3, h4 {
 		
 		visibility: visible;
 		
-		-webkit-animation: flicker 1s infinite;
-		-moz-animation: flicker 1s infinite;
-		animation: flicker 1s infinite;
+		-webkit-animation: flicker 1.25s infinite;
+		-moz-animation: flicker 1.25s infinite;
+		animation: flicker 1.25s infinite;
 	}
 	
 .home #top .wrap {
@@ -265,9 +265,9 @@ h1, h2, h3, h4 {
  */
  
 #top .wrap, .screenie, #top .wrap p {
-	-webkit-transition: top 1s, opacity 1s, margin-top 1s;
-	-moz-transition: top 1s, opacity 1s, margin-top 1s;
-	transition: top 1s, opacity 1s, margin-top 1s;
+	-webkit-transition: top 1.25s, opacity 1.25s, margin-top 1.25s;
+	-moz-transition: top 1.25s, opacity 1.25s, margin-top 1.25s;
+	transition: top 1.25s, opacity 1.25s, margin-top 1.25s;
 }
 
 .typing #top, .typing {
