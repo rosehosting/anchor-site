@@ -1,5 +1,5 @@
 <aside class="sidebar">
-	<h3>Getting started</h3>
+	<h3><a href="/docs/getting-started">Getting started</a></h3>
 
 	<ul class="submenu">
 		<?php doc('getting-started/requirements', 'System Requirements'); ?>
@@ -8,7 +8,7 @@
 		<?php doc('getting-started/configuration', 'Configuration'); ?>
 	</ul>
 
-	<h3>The Admin Interface</h3>
+	<h3><a href="/docs/managing-content">The Admin Interface</a></h3>
 
 	<ul class="submenu">
 		<?php doc('managing-content/posts', 'Posts (Articles)'); ?>
@@ -21,7 +21,7 @@
 		<?php doc('managing-content/custom-variables', 'Custom Variables', array('red')); ?>
 	</ul>
 
-	<h3>Theming</h3>
+	<h3><a href="/docs/theming">Theming</a></h3>
 
 	<ul class="submenu">
 		<?php doc('theming/introduction', 'Introduction'); ?>
@@ -29,7 +29,7 @@
 		<?php doc('theming/custom-templates', 'Custom Templates'); ?>
 	</ul>
 
-	<h3>Function Reference</h3>
+	<h3><a href="/docs/function-reference">Function Reference</a></h3>
 
 	<ul class="submenu">
 		<?php doc('function-reference/articles', 'Articles'); ?>
@@ -45,7 +45,7 @@
 		<?php doc('function-reference/users', 'Users'); ?>
 	</ul>
 
-	<h3>Class Reference</h3>
+	<h3><a href="/docs/class-reference">Class Reference</a></h3>
 
 	<ul class="submenu">
 		<?php doc('class-reference/base', 'Base', array('red')); ?>
@@ -58,7 +58,7 @@
 		<?php doc('class-reference/user', 'User', array('red')); ?>
 	</ul>
 
-	<h3>Plugins</h3>
+	<h3><a href="/docs/plugins">Plugins</a></h3>
 
 	<ul class="submenu">
 		<?php doc('plugins/introduction', 'Introduction'); ?>

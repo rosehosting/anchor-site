@@ -30,9 +30,9 @@
 				<ul>
 				<?php foreach(array(
 					'features' => 'Features', 'docs' => 'Documentation', 'blog' => 'News &amp; Updates', 'forum' => 'Community'
-				) as $link => $title): ?>
+				) as $link => $linkName): ?>
 					<?php $class = (strpos($page, $link) !== false) ? array('class' => $link . ' active') : array('class' => $link); ?>
-					<?php echo Html::element('li', Html::link($link, $title), $class); ?>
+					<?php echo Html::element('li', Html::link($link, $linkName), $class); ?>
 				<?php endforeach; ?>
 					<li class="dropdown">
 						<a href="//github.com/anchorcms">Elsewhere</a>

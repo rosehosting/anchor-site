@@ -1,7 +1,7 @@
 <?php echo $header; ?>
 
 	<section class="wrap">
-		<section class="content">
+		<section class="content main">
 			<?php echo $content; ?>
 		</section>
 		
@@ -14,7 +14,9 @@
 			var elements = document.querySelectorAll('pre code');
 
 			for(var i = 0; i < elements.length; i++) {
-				elements[i].setAttribute('data-language', 'php');
+				if(!elements[i].getAttribute('data-language')) {
+					elements[i].setAttribute('data-language', 'php');
+				}
 			};
 
 			Rainbow.color();

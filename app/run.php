@@ -31,8 +31,29 @@ Autoloader::directory(array(
  */
 define('LATEST_VERSION', '1.0');
 
+function default_doc($dir) {
+	if( is_readable($dir . '/introduction.md') ) {
+		return $dir .= '/introduction';
+	}
+	
+	foreach( new DirectoryIterator($dir) as $file) {
+	    if($file->isFile()) {
+	        return $dir .= '/' . substr($file, 0, -3);
+	    }        
+	}
+}
+
 function doc($slug, $name, $classes = array()) {
 	$url = str_replace('/docs/', '', filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL));
+
+	if(strpos($url, '/') === false) {
+		$default = default_doc(APP . 'views/docs/' . $url);
+		$default = basename(dirname($default)) . '/' . basename($default);
+
+		if($default == $slug) {
+			$classes = array_merge(array('active'), $classes);
+		}
+	}
 
 	if($url == $slug) {
 		$classes = array_merge(array('active'), $classes);

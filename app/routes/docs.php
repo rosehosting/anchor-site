@@ -3,14 +3,20 @@
 Route::get(array('docs', 'docs/(:any)', 'docs/(:any)/(:any)'), function() {
 	$args = func_get_args();
 
-	if( ! count($args)) {
+	if( ! count($args) ) {
 		$args = array('getting-started', 'requirements');
 	}
 
-	if( ! is_readable($path = APP . 'views/docs/' . implode('/', $args) . '.md')) {
+	$path = APP . 'views/docs/' . implode('/', $args);
+
+	if( count($args) === 1 ) {
+		$path = default_doc($path);
+	}
+
+	if( ! is_readable($path = $path . '.md') ) {
 		$output = Layout::create('error/404', array(
 			'title' => 'Page not found'
-		))->yield();
+		))->exec();
 
 		return Response::create($output, 404);
 	}

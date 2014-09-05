@@ -7,6 +7,12 @@ Route::get(array('/', 'home'), function() {
 	return Layout::create('home', array('homepage' => true));
 });
 
+Route::get('features', function() {
+	return Layout::create('features', array(
+		'title' => 'Dozens of reasons to use Anchor'
+	));
+});
+
 /*
 	Blog
 */
@@ -84,7 +90,7 @@ Route::any('deploy', function() {
 Route::not_found(function() {
 	$output = Layout::create('error/404', array(
 		'title' => 'Page not found'
-	))->yield();
+	))->exec();
 
 	return Response::create($output, 404);
 });
