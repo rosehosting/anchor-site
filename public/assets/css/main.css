@@ -171,6 +171,10 @@ h1, h2, h3, h4, dt, blockquote, .sidebar li.active a:before {
 			color: #b3aeaa;
 			font-size: 19px;
 		}
+			.home h3 + .btn {
+				float: right;
+				margin: -30px 0 30px;
+			}
 	h4 {
 		font-size: 26px;
 		line-height: 32px;
@@ -426,8 +430,10 @@ h1, h2, h3, h4, dt, blockquote, .sidebar li.active a:before {
 	position: relative;
 }
 	.feature-overview section {
-		text-align: center;
+		clear: both;
 		padding-bottom: 120px;
+
+		text-align: center;
 	}
 		.feature-overview section:after, .feature-list .col div:after {
 			content: '';
