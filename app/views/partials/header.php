@@ -24,7 +24,7 @@
 		<header id="top">
 			<nav role="navigation">
 				<a id="logo" href="/" title="Go to the Anchor homepage">
-					<img src="<?php echo asset('assets/img/logo.png'); ?>" alt="Anchor CMS">
+					<img src="<?php echo asset('assets/img/logo.png'); ?>" width="24" height="22" alt="Anchor CMS">
 				</a>
 
 				<ul>
