@@ -794,3 +794,32 @@ h1, h2, h3, h4, dt, blockquote, .sidebar li.active a:before, .main h1 + p {
 
 @-webkit-keyframes spin { to { transform: rotate(360deg); } }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+
+/**
+ *   Blog styles 
+ */
+
+.article {
+	width: 1020px;
+	margin: 80px auto;
+
+	background: #fff url('../img/blog/beta.jpg') no-repeat 50% 0;
+	box-shadow: 0 4px 8px rgba(0,0,0,.1), 0 0 0 1px rgba(0,0,0,.005), inset 0 0 0 5px rgba(255,255,255,.1);
+}
+	.article header {
+		padding: 150px 0 50px;
+		text-align: center;
+	}
+		.article small {
+			font-size: 13px;
+			line-height: 19px;
+
+			color: #bab8b6;
+		}
+	.article-content {
+		padding: 20px 120px;
+	}
+		.article-content p {
+			padding-bottom: 1em;
+		}
