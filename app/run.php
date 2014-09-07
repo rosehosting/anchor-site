@@ -44,7 +44,12 @@ function default_doc($dir) {
 }
 
 function doc($slug, $name, $classes = array()) {
-	$url = str_replace('/docs/', '', filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL));
+	$url = str_replace('/docs', '', filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL));
+	$url = ltrim($url, '/');
+
+	if(!$url) {
+		$url = 'getting-started/requirements';
+	}
 
 	if(strpos($url, '/') === false) {
 		$default = default_doc(APP . 'views/docs/' . $url);

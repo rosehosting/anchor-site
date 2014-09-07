@@ -15,4 +15,4 @@ If you’re not sure what version of PHP you have, create a new file, and paste 
 
 This should print a number to your screen, which should be bigger than `5.3.6`.
 
-**If you don’t have the necessary requirements, you will not be able to install Anchor.** Contact your host to upgrade.
+<p class="info"><b>If you don’t have the necessary requirements, you will not be able to install Anchor.</b> Contact your host to upgrade.</p>
