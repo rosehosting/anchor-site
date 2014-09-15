@@ -49,6 +49,12 @@ class Route {
 	public static function __callStatic($method, $arguments) {
 		static::register($method, array_shift($arguments), array_shift($arguments));
 	}
+	
+	public static function redirect($url, $to) {
+		return Route::get($url, function() use($to) {
+			return Response::create('', 301, array('Location' => $to));
+		});
+	}
 
 	/**
 	 * Register a route on the router

@@ -14,20 +14,10 @@ Route::get('features', function() {
 });
 
 /*
-	Blog
+	Redirects
 */
-Route::get('blog', function() {
-	$base = 'http://blog.anchorcms.com/';
-	return Response::create('', 301, array('Location' => $base));
-});
-
-/*
-	Forum
-*/
-Route::get('forum', function() {
-	$base = 'http://forums.anchorcms.com/';
-	return Response::create('', 301, array('Location' => $base));
-});
+Route::redirect('blog', 'http://blog.anchorcms.com/');
+Route::redirect('forum', 'http://forums.anchorcms.com/');
 
 
 /*
