@@ -28,7 +28,7 @@
 				    	<dt>2,085</dt>
 				    	<dd>Stars</dd>
 
-				    	<dt>1.0-alpha</dt>
+				    	<dt><?php echo latest_version(); ?></dt>
 				    	<dd>Latest version</dd>
 			    	</dl>
 		    	</section>
@@ -36,8 +36,9 @@
 		    	<section class="quote">
 		    		<b>Thoughts</b>
 
-		    		<blockquote>You can’t control the wind, but you can adjust your sails.</blockquote>
-		    		<cite>— Yiddish proverb</cite>
+					<?php $quote = quote(); ?>
+		    		<blockquote><?php echo $quote->text; ?></blockquote>
+		    		<cite>— <?php echo $quote->author; ?></cite>
 		    	</section>
 
 		    	<section class="colophon">

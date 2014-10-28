@@ -71,6 +71,53 @@ function doc($slug, $name, $classes = array()) {
 	echo '</li>';
 }
 
+function quote() {
+	$quotes = array(
+		array(
+			'text' => 'You can’t control the wind, but you can adjust your sails.',
+			'author' => 'Yiddish proverb'
+		),
+		
+		array(
+			'text' => 'Note to self: don’t forget to buy some more Oreos.',
+			'author' => '<a href="//twitter.com/idiot">@idiot</a>'
+		),
+		
+		array(
+			'text' => 'Do what you want, ‘cause a pirate is free. You are a pirate.',
+			'author' => 'lol limewire'
+		)
+	);
+	
+	return (object) $quotes[array_rand($quotes)];
+}
+
+function latest_version() {
+	if(defined(LATEST_VERSION)) {
+		return LATEST_VERSION;
+	}
+	
+	// ugh
+	$endpoint = 'https://api.github.com/repos/anchorcms/anchor-cms/releases?access_token=d7e04abb4f641b69b5c945654a6a69d041aadc8d';
+	
+	$curl = curl_init($endpoint);
+			curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+	$json =	curl_exec($curl);
+			curl_close($curl);
+		
+	$json = json_decode($json);
+	
+	$version = $json[0]->tag_name;
+	
+	if(!defined('LATEST_VERSION')) {
+		define('LATEST_VERSION', $version);
+	}
+	
+	return $version;
+}
+
 function get_insert_stats() {
 	return array(
 		'date' => Arr::get($_SERVER, 'REQUEST_TIME', gmdate('U')),
