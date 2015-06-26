@@ -1,5 +1,5 @@
 <?php echo $header; ?>
-
+	<!-- hello craig -->
 	<section class="features wrap">
 		<article class="col3">
 			<img src="<?php echo asset('assets/img/icons/markdown.png'); ?>">
