@@ -559,8 +559,8 @@ h1, h2, h3, h4, dt, blockquote, .sidebar li.active a:before, .main h1 + p {
 			background-color: #36a4e3;
 		}
 		.social .twitter { background-position: 0 0; }
-		.social .github { background-position: -60px 0; }
-		.social .dribbble { background-position: -120px 0; }
+		.social .github { background-position: -120px 0; }
+		.social .dribbble { background-position: -60px 0; }
 
 .sidebar {
 	float: left;

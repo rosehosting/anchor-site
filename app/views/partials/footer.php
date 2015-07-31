@@ -25,7 +25,7 @@
 				    	<dt>305,951</dt>
 				    	<dd>Downloads</dd>
 
-				    	<dt>2,085</dt>
+				    	<dt><?php echo star_count(); ?></dt>
 				    	<dd>Stars</dd>
 
 				    	<dt><?php echo latest_version(); ?></dt>
@@ -49,8 +49,8 @@
 
 					<nav class="social">
 			            <a class="twitter" href="//twitter.com/anchorcms">Twitter</a>
-			            <a class="github" href="//github.com/anchorcms">GitHub</a>
 			            <a class="dribbble" href="//dribbble.com/tags/anchor-cms">Dribbble</a>
+			            <a class="github" href="//github.com/anchorcms">GitHub</a>
 			        </nav>
 		    	</section>
 		    </div>

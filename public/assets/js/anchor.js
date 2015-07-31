@@ -23,7 +23,7 @@ if(typer) {
 		if(typedText == typerText) {
 			clearInterval(typerInterval);
 		}
-	}, 100);
+	}, 75);
 };
 
 var dropdown = document.querySelector('.dropdown a');
