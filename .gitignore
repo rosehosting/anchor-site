@@ -5,3 +5,5 @@
 # DevEnv
 /app/config/dev
 /app/config/prod
+
+.phpintel

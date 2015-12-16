@@ -139,4 +139,3 @@ function get_insert_stats() {
  * Import defined routes
  */
 require APP . 'routes' . EXT;
-require APP . 'routes/docs' . EXT;

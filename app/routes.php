@@ -1,5 +1,24 @@
 <?php
 
+$env = $_SERVER['SERVER_NAME'] === 'localhost' ? 'local' : 'live';
+
+$redirects = [
+	'blog' => [
+		'local' => 'http://localhost:7001',
+		'live' => 'http://blog.anchorcms.com'
+	],
+
+	'forum' => [
+		'local' => 'http://localhost:7002',
+		'live' => 'http://forum.anchorcms.com'
+	],
+
+	'docs' => [
+		'local' => 'http://localhost:7003',
+		'live' => 'http://docs.anchorcms.com'
+	]
+];
+
 /*
 	Home page
 */
@@ -16,9 +35,9 @@ Route::get('features', function() {
 /*
 	Redirects
 */
-Route::redirect('blog', 'http://blog.anchorcms.com/');
-Route::redirect('forum', 'http://forums.anchorcms.com/');
-
+foreach($redirects as $slug => $options) {
+	Route::redirect($slug, $options[$env]);
+}
 
 /*
 	Download

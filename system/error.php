@@ -19,9 +19,9 @@ class Error {
 	 * Register Exception handler
 	 */
 	public static function register() {
-		set_exception_handler(array('Error', 'exception'));
-		set_error_handler(array('Error', 'native'));
-		register_shutdown_function(array('Error', 'shutdown'));
+		// set_exception_handler(array('Error', 'exception'));
+		// set_error_handler(array('Error', 'native'));
+		// register_shutdown_function(array('Error', 'shutdown'));
 	}
 
 	/**
