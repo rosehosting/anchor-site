@@ -4,91 +4,7 @@ error_reporting(-1);
 ini_set('display_errors', true);
 
 require __DIR__ . '/../vendor/autoload.php';
-
-function dd() {
-	if( ! headers_sent()) {
-		header('content-type: text/plain');
-	}
-	call_user_func_array('var_dump', func_get_args());
-	exit(1);
-}
-
-function e($str) {
-	return htmlspecialchars($str, ENT_COMPAT, 'UTF-8', false);
-}
-
-function asset($url) {
-	return '/' . trim($url, '/');
-}
-
-function latest_version() {
-	$response = gethub('anchorcms/anchor-cms/releases');
-	$release = current($response);
-
-	return $release->tag_name;
-}
-
-function quote() {
-	$quotes = array(
-		array(
-			'text' => 'You can’t control the wind, but you can adjust your sails.',
-			'author' => 'Yiddish proverb'
-		),
-
-		array(
-			'text' => 'Note to self: don’t forget to buy some more Oreos.',
-			'author' => '<a href="//twitter.com/idiot">@idiot</a>'
-		),
-
-		array(
-			'text' => 'Do what you want, ‘cause a pirate is free. You are a pirate.',
-			'author' => 'lol limewire'
-		)
-	);
-
-	return (object) $quotes[array_rand($quotes)];
-}
-
-function gethub($resource) {
-	$endpoint = 'https://api.github.com/repos/' . $resource;
-	$file = hash('crc32', $endpoint) . '.cache';
-	$path = __DIR__ . '/storage/' . $file;
-
-	if(is_file($path)) {
-		$json = file_get_contents($path);
-
-		return json_decode($json);
-	}
-
-	$curl = curl_init($endpoint);
-			curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
-			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-	$json =	curl_exec($curl);
-			curl_close($curl);
-
-	file_put_contents($path, $json);
-
-	return json_decode($json);
-}
-
-function star_count() {
-	$response = gethub('anchorcms/anchor-cms');
-
-	return number_format($response->stargazers_count);
-}
-
-function log_download() {
-	$sql = 'INSERT INTO "downloads" ("date", "ip", "ua") VALUES(?, ?, ?)';
-	$values = [
-		value($_SERVER, 'REQUEST_TIME', gmdate('U')),
-		value($_SERVER, 'REMOTE_ADDR', '0.0.0.0'),
-		value($_SERVER, 'HTTP_USER_AGENT', ''),
-	];
-
-	$pdo = new PDO('sqlite:' . __DIR__ . '/storage/stats.sqlite');
-	$stm = $pdo->prepare($sql);
-	$stm->execute($values);
-}
+require __DIR__ . '/helpers.php';
 
 option('view_dir', __DIR__ . '/views');
 
@@ -100,7 +16,7 @@ option('menu', [
 ]);
 
 route('/', function() {
-    echo render('home.php', [
+    $output = render('home.php', [
         'header' => render('partials/header.php', [
 			'title' => 'Make blogging beautiful',
 			'page' => '',
@@ -110,10 +26,13 @@ route('/', function() {
 		'footer' => render('partials/footer.php'),
 		'homepage' => true,
     ]);
+
+	header(sprintf('ETag: %s', hash('md5', $output)));
+	echo $output;
 });
 
 route('/features', function() {
-    echo render('features.php', [
+    $output = render('features.php', [
         'header' => render('partials/header.php', [
 			'title' => 'Dozens of reasons to use Anchor',
 			'page' => '',
@@ -123,10 +42,13 @@ route('/features', function() {
 		'footer' => render('partials/footer.php'),
 		'homepage' => false,
     ]);
+
+	header(sprintf('ETag: %s', hash('md5', $output)));
+	echo $output;
 });
 
 route('/resources', function() {
-	echo render('resources.php', [
+	$output = render('resources.php', [
         'header' => render('partials/header.php', [
 			'title' => 'Resources',
 			'page' => '',
@@ -136,10 +58,13 @@ route('/resources', function() {
 		'footer' => render('partials/footer.php'),
 		'homepage' => false,
     ]);
+
+	header(sprintf('ETag: %s', hash('md5', $output)));
+	echo $output;
 });
 
 route('/stats', function() {
-	echo render('stats.php', [
+	$output = render('stats.php', [
         'header' => render('partials/header.php', [
 			'title' => 'Stats',
 			'page' => '',
@@ -149,6 +74,9 @@ route('/stats', function() {
 		'footer' => render('partials/footer.php'),
 		'homepage' => false,
     ]);
+
+	header(sprintf('ETag: %s', hash('md5', $output)));
+	echo $output;
 });
 
 option('error_404', function() {
@@ -178,15 +106,19 @@ route('/version', function() {
 });
 
 route('/forum', function() {
-    header('Location: http://forums.anchorcms.com');
+    header('Location: http://forums.anchorcms.com', true, 302);
 });
 
 route('/blog', function() {
-    header('Location: http://blog.anchorcms.com');
+    header('Location: http://blog.anchorcms.com', true, 302);
 });
 
 route('/docs', function() {
-    header('Location: http://docs.anchorcms.com');
+    header('Location: http://docs.anchorcms.com', true, 302);
+});
+
+route('/demo', function() {
+    header('Location: http://demo.anchorcms.com', true, 302);
 });
 
 run();

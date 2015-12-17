@@ -4,11 +4,7 @@
 		<section class="content">
 			<h3>Downloads</h3>
 
-			<p><?php echo $downloads; ?></p>
-
-			<h3>Active Installations</h3>
-
-			<p><?php echo $active; ?></p>
+			<p><?php echo download_count(); ?></p>
 		</section>
 
 		<aside class="sidebar"></aside>

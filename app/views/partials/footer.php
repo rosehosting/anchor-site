@@ -22,7 +22,7 @@
 			    	<b>Stats <em class="amp">&amp;</em> Numbers</b>
 
 			    	<dl>
-				    	<dt>305,951</dt>
+				    	<dt><?php echo download_count(); ?></dt>
 				    	<dd>Downloads</dd>
 
 				    	<dt><?php echo star_count(); ?></dt>
@@ -55,7 +55,7 @@
 		    	</section>
 		    </div>
 		</footer>
-		
+
 		<script src="<?php echo asset('assets/js/retina.js'); ?>"></script>
 		<script src="<?php echo asset('assets/js/anchor.js'); ?>"></script>
 
