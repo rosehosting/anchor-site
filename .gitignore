@@ -1,9 +1,17 @@
-# OSX dot files
+# dot files
 .DS_Store
-*.esproj
-
-# DevEnv
-/app/config/dev
-/app/config/prod
-
 .phpintel
+
+# extensions
+*.esproj
+*.lock
+*.phar
+*.log
+*.sqlite
+*.db
+*.cache
+
+# folders
+/app/config
+/bin
+/vendor

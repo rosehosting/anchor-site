@@ -19,7 +19,7 @@
 		<meta name="wot-verification" content="d48de25abfc61df73516"/>
 	</head>
 
-	<body class="<?php echo isset($homepage) ? 'home' : ''; ?>">
+	<body class="<?php echo $homepage ? 'home' : ''; ?>">
 
 		<header id="top">
 			<nav role="navigation">
@@ -28,15 +28,12 @@
 				</a>
 
 				<ul>
-				<?php foreach(array(
-					'features' => 'Features', 'docs' => 'Documentation', 'blog' => 'News &amp; Updates', 'forum' => 'Community'
-				) as $link => $linkName): ?>
-					<?php $class = (strpos($page, $link) !== false) ? array('class' => $link . ' active') : array('class' => $link); ?>
-					<?php echo Html::element('li', Html::link($link, $linkName), $class); ?>
+				<?php foreach($menu as $link => $label): ?>
+					<?php $class = (strpos($page, $link) !== false) ? $link . ' active' : $link; ?>
+					<li class="<?php echo $class; ?>"><a href="<?php echo $link; ?>"><?php echo $label; ?></a></li>
 				<?php endforeach; ?>
 					<li class="dropdown">
 						<a href="//github.com/anchorcms">Elsewhere</a>
-						
 						<ul>
 							<li><a href="//github.com/anchorcms/anchor-cms">GitHub</a></li>
 							<li><a href="//anchorthemes.com">Themes <span>Directory</span></a></li>
@@ -46,27 +43,26 @@
 						</ul>
 					</li>
 				</ul>
-				
+
 				<p class="buttons">
-					<?php echo Html::link('download', 'Download <span>Anchor ' . LATEST_VERSION . '</span>', array('class' => 'btn')); ?>
+					<a class="btn" href="/download">Download <span>Anchor <?php echo latest_version(); ?></span></a>
 					<a href="//demo.anchorcms.com" class="btn subdued">Play with a demo</a>
 				</p>
 			</nav>
 
+			<?php if($homepage): ?>
+			<div class="wrap">
+				<h1>
+					<span data-typer>Probably the easiest way to blog</span><span class="cursor"></span>
+				</h1>
+				<p>Anchor’s a super-simple blog system, made to let you just write.</p>
 
-			<?php if(isset($homepage)): ?>
-				<div class="wrap">
-					<h1>
-						<span data-typer>Probably the easiest way to blog</span><span class="cursor"></span>
-					</h1>
-					<p>Anchor’s a super-simple blog system, made to let you just write.</p>
+				<a class="btn" href="/download">Download <span>Anchor <?php echo latest_version(); ?></span></a>
+				<a href="//stripe.com" class="btn subdued">Donate $5</a>
+			</div>
 
-					<?php echo Html::link('download', 'Download <span>version ' . LATEST_VERSION . '</span>', array('class' => 'btn')); ?>
-					<a href="//stripe.com" class="btn subdued">Donate $5</a>
-				</div>
-
-				<img class="screenie" alt="Screenshot of Anchor CMS" src="<?php echo asset('assets/img/screenshot.png'); ?>">
-			<?php elseif(isset($title)): ?>
-				<h1 class="wrap"><?php echo $title; ?></h1>
+			<img class="screenie" alt="Screenshot of Anchor CMS" src="<?php echo asset('assets/img/screenshot.png'); ?>">
+			<?php elseif($title): ?>
+			<h1 class="wrap"><?php echo $title; ?></h1>
 			<?php endif; ?>
 		</header>
