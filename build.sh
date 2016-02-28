@@ -1,0 +1,1 @@
+lessc --clean-css assets/less/styles.less public/assets/css/styles.css

@@ -1,0 +1,38 @@
+{
+	"name": "anchorcms/anchor-site",
+	"description": "Anchor CMS Site",
+	"license": "GPLv3",
+	"type": "project",
+	"authors": [
+		{
+			"name": "Idiot",
+			"email": "iam@visualidiot.com"
+		},
+		{
+			"name": "Kieron",
+			"email": "rwarasaurus@gmail.com"
+		}
+	],
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "git@github.com:rwarasaurus/ship.git"
+		}
+	],
+	"require": {
+		"php": ">=5.3",
+		"rwarasaurus/ship": "dev-master",
+		"dflydev/markdown": "dev-master",
+		"stripe/stripe-php": "dev-master",
+		"swiftmailer/swiftmailer": "5.2.*@dev"
+	},
+	"require-dev": {
+		"monolog/monolog": "dev-master"
+	},
+	"autoload": {
+		"psr-0": {
+			"": "src/"
+		}
+	},
+	"minimum-stability": "dev"
+}
