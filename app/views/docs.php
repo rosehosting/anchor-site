@@ -59,14 +59,15 @@
 			<li><?php link_to('docs/class-reference/post', 'Post', array('red')); ?></li>
 			<li><?php link_to('docs/class-reference/user', 'User', array('red')); ?></li>
 		</ul>
-
+		
+		<!--
 		<h3>Plugins</h3>
 
 		<ul class="submenu">
 			<li><?php link_to('docs/plugins/introduction', 'Introduction'); ?></li>
 			<li><?php link_to('docs/plugins/file-structure', 'File Structure'); ?></li>
 			<li><?php link_to('docs/plugins/plugin-file', 'The <code>plugin.php</code> file'); ?></li>
-		</ul>
+		</ul>-->
 	</aside>
 	
 	<section class="content">
