@@ -32,7 +32,7 @@ $app['memcached'] = function() {
 
 $app['menu'] = [
 	'/docs' => 'Docs',
-	'/resources' => 'Resources',
+	'https://anchorthemes.com/' => 'Themes',
 	'http://forums.anchorcms.com/' => 'Forum',
 	'http://blog.anchorcms.com/' => 'Blog',
 	'/download' => 'Download'
