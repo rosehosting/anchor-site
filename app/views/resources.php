@@ -35,6 +35,7 @@
 			<ul>
 				<li><a href="http://linode.com/">Linode</a></li>
 				<li><a href="http://mediatemple.net/webhosting/ve/">Media Temple</a></li>
+				<li><a href="https://www.rosehosting.com">RoseHosting.com - Fully Managed Anchor CMS Hosting with FREE 24/7 Support</a></li>
 			</ul>
 
 			<p><strong><abbr title="Platform as a Service">PaaS<abbr></strong></p>
